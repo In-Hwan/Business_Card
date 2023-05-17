@@ -14,7 +14,7 @@
   <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
   <meta name="viewport" content="width=device-width", initial-scale="1">
   <link rel="stylesheet" href="css/bootstrap.css">
-  <title>DREAM</title>
+  <title>명함 관리</title>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -25,12 +25,7 @@
       <span> class="icon-bar"></span>
       <span> class="icon-bar"></span>
       <span> class="icon-bar"></span>
-      <span> class="icon-bar"></span>
     </button>
-    <!-- 로고 이미지 -->
-    <div class="text-center">
-      <a href="main.jsp"> <img class="img-responsive center-block img-circle" alt="스마트팜 로그인 로고" src="image/smartpage_login_logo.png"></a>
-    </div>
   </div>
 </nav>
 

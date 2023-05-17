@@ -9,7 +9,7 @@ public class UserDAO {
 
     public UserDAO() {
         try {
-            String dbURL = "jdbc:mysql://localhost:3306/SmartFarmDB";
+            String dbURL = "jdbc:mysql://localhost:3306/micom";
             String dbID = "root";
             String dbPassword = "root";
             Class.forName("com.mysql.cj.jdbc.Driver");
