@@ -8,9 +8,9 @@ public class BusinessDAO {
 
     public BusinessDAO() {
         try {
-            String dbURL = "jdbc:mysql://localhost:3306/micom";
-            String dbID = "root";
-            String dbPassword = "root";
+            String dbURL = "jdbc:mysql://smartfarmtest.cdletczkpejm.ap-northeast-2.rds.amazonaws.com:3306/micom";
+            String dbID = "admin";
+            String dbPassword = "smartadmin";
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 
@@ -20,7 +20,7 @@ public class BusinessDAO {
     }
 
     public int getBcID() {
-        String SQL = "SELECT bcID FROM Business_Card ORDER BY bcID DESC LIMIT 1";
+        String SQL = "SELECT bcID FROM business ORDER BY bcID DESC LIMIT 1";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             rs = pstmt.executeQuery();
@@ -35,7 +35,7 @@ public class BusinessDAO {
     }
 
     public int getNext() {
-        String SQL = "SELECT bcID FROM Business_Card ORDER BY bcID DESC";
+        String SQL = "SELECT bcID FROM business ORDER BY bcID DESC";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             rs = pstmt.executeQuery();
@@ -51,7 +51,7 @@ public class BusinessDAO {
     }
 
     public int write(String company, String name, String phone, String fax, String address, String email) {
-        String SQL = "INSERT INTO Business_Card VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO business VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, getNext());
@@ -71,7 +71,7 @@ public class BusinessDAO {
     }
 
     public ArrayList<Business> getList(int pageNumber) {
-        String SQL = "SELECT * FROM Business_Card WHERE bcID < ? AND bcAvailable = 1 ORDER BY bcID DESC LIMIT 10";
+        String SQL = "SELECT * FROM business WHERE bcID < ? AND bcAvailable = 1 ORDER BY bcID DESC LIMIT 10";
         ArrayList<Business> list = new ArrayList<Business>();
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -98,7 +98,7 @@ public class BusinessDAO {
     }
 
     public boolean nextPage(int pageNumber) {
-        String SQL = "SELECT * FROM Business_Card WHERE bcID < ? AND bcAvailable = 1";
+        String SQL = "SELECT * FROM business WHERE bcID < ? AND bcAvailable = 1";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
@@ -114,7 +114,7 @@ public class BusinessDAO {
     }
 
     public Business getBusiness(int bcID) {
-        String SQL = "SELECT * FROM Business_Card WHERE bcID = ?";
+        String SQL = "SELECT * FROM business WHERE bcID = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, bcID);
@@ -139,7 +139,7 @@ public class BusinessDAO {
     }
 
     public int update(String company, String name, String phone, String fax, String address, String email, int bcID) {
-        String SQL = "UPDATE Business_Card  SET company = ?, name = ?, phone = ?, fax = ?, address = ?, email = ? WHERE bcID = ?";
+        String SQL = "UPDATE business  SET company = ?, name = ?, phone = ?, fax = ?, address = ?, email = ? WHERE bcID = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, company);
@@ -158,7 +158,7 @@ public class BusinessDAO {
     }
 
     public int delete(int bcID) {
-        String SQL = "UPDATE Business_Card SET bcAvailable = 0 WHERE bcId = ?";
+        String SQL = "UPDATE business SET bcAvailable = 0 WHERE bcId = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, bcID);

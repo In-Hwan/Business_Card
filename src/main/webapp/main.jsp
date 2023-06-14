@@ -30,7 +30,7 @@
             data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
             aria-expanded="false">
       <span class="icon-bar"></span>
-      <span class="icon-bar"></span>s
+      <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
 

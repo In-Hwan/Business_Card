@@ -9,9 +9,9 @@ public class UserDAO {
 
     public UserDAO() {
         try {
-            String dbURL = "jdbc:mysql://localhost:3306/micom";
-            String dbID = "root";
-            String dbPassword = "root";
+            String dbURL = "jdbc:mysql://smartfarmtest.cdletczkpejm.ap-northeast-2.rds.amazonaws.com:3306/micom";
+            String dbID = "admin";
+            String dbPassword = "smartadmin";
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 
@@ -22,7 +22,7 @@ public class UserDAO {
 
     // 로그인 메서드
     public int login(String userID, String userPassword) {
-        String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
+        String SQL = "SELECT userPassword FROM user WHERE userID = ?";
         try {
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, userID);
@@ -42,7 +42,7 @@ public class UserDAO {
     }
 
     public int join(User user) {
-        String SQL = "INSERT INTO USER VALUES (?, ?, ?, ?)";
+        String SQL = "INSERT INTO user VALUES (?, ?, ?, ?)";
         try {
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, user.getUserID());
