@@ -2,11 +2,11 @@
 <%@ page import = "name.UserDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="user" class="name.User" scope="page" />
-<jsp:setProperty name="user" property="userID"/>
-<jsp:setProperty name="user" property="userPassword"/>
-<jsp:setProperty name="user" property="userName"/>
-<jsp:setProperty name="user" property="userEmail"/>
+<jsp:useBean id="name" class="name.User" scope="page" />
+<jsp:setProperty name="name" property="userID"/>
+<jsp:setProperty name="name" property="userPassword"/>
+<jsp:setProperty name="name" property="userName"/>
+<jsp:setProperty name="name" property="userEmail"/>
 
 
 <html>
