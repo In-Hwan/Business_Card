@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ page import = "name.UserDAO" %>
+<%@ page import = "name.NameDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="name" class="name.User" scope="page" />
+<jsp:useBean id="name" class="name.Name" scope="page" />
 <jsp:setProperty name="name" property="userID"/>
 <jsp:setProperty name="name" property="userPassword"/>
 
@@ -41,11 +41,11 @@
     }
 
     // 회원가입 페이지에서 입력한 정보를 세션에 저장
-    UserDAO userDAO = new UserDAO();
-    int result = userDAO.login(user.getUserID(),user.getUserPassword());
+    NameDAO userDAO = new NameDAO();
+    int result = userDAO.login(name.getUserID(),name.getUserPassword());
 
     if (result == 1) {
-        session.setAttribute("userID", user.getUserID()); // 로그인 유저 확인
+        session.setAttribute("userID", name.getUserID()); // 로그인 유저 확인
         PrintWriter script = response.getWriter();
         script.println("<script>");
         script.println("location.href = 'main.jsp'");

@@ -1,6 +1,6 @@
 package name;
 
-public class User {
+public class Name {
 
     public String getUserID() {
         return userID;

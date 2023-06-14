@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class UserDAO {
+public class NameDAO {
     private Connection conn;
     private PreparedStatement pstmt;
     private ResultSet rs;
 
-    public UserDAO() {
+    public NameDAO() {
         try {
             String dbURL = "jdbc:mysql://smartfarmtest.cdletczkpejm.ap-northeast-2.rds.amazonaws.com:3306/micom";
             String dbID = "admin";
@@ -44,14 +44,14 @@ public class UserDAO {
         return -2; // DB오류
     }
 
-    public int join(User user) {
+    public int join(Name name) {
         String SQL = "INSERT INTO user VALUES (?, ?, ?, ?)";
         try {
             pstmt = conn.prepareStatement(SQL);
-            pstmt.setString(1, user.getUserID());
-            pstmt.setString(2, user.getUserPassword());
-            pstmt.setString(3, user.getUserName());
-            pstmt.setString(4, user.getUserEmail());
+            pstmt.setString(1, name.getUserID());
+            pstmt.setString(2, name.getUserPassword());
+            pstmt.setString(3, name.getUserName());
+            pstmt.setString(4, name.getUserEmail());
             return pstmt.executeUpdate();
 
         } catch (Exception e) {

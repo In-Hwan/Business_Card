@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ page import = "name.UserDAO" %>
+<%@ page import = "name.NameDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="name" class="name.User" scope="page" />
+<jsp:useBean id="name" class="name.Name" scope="page" />
 <jsp:setProperty name="name" property="userID"/>
 <jsp:setProperty name="name" property="userPassword"/>
 <jsp:setProperty name="name" property="userName"/>
@@ -44,7 +44,7 @@
 
   }
 
-  if (user.getUserID() == null || user.getUserPassword() == null || user.getUserName() == null || user.getUserEmail() == null) {
+  if (name.getUserID() == null || name.getUserPassword() == null || name.getUserName() == null || name.getUserEmail() == null) {
     PrintWriter script = response.getWriter();
     script.println("<script>");
     script.println("alert('입력되지 않은 항목이 있습니다.')");
@@ -52,8 +52,8 @@
     script.println("</script>");
 
   } else {
-    UserDAO userDAO = new UserDAO();
-    int result = userDAO.join(user);
+    NameDAO userDAO = new NameDAO();
+    int result = userDAO.join(name);
     if (result == -1) {
       PrintWriter script = response.getWriter();
       script.println("<script>");
@@ -63,7 +63,7 @@
     }
 
     else{
-      session.setAttribute("userID", user.getUserID());
+      session.setAttribute("userID", name.getUserID());
       PrintWriter script = response.getWriter();
       script.println("<script>");
       script.println("location.href = 'login.jsp'");
