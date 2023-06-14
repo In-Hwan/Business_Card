@@ -1,5 +1,4 @@
-package user;
-import java.sql.Date;
+package name;
 
 public class User {
 
