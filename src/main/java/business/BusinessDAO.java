@@ -8,7 +8,7 @@ public class BusinessDAO {
 
     public BusinessDAO() {
         try {
-            String dbURL = "jdbc:mysql://smartfarmtest.cdletczkpejm.ap-northeast-2.rds.amazonaws.com:3306/micom";
+            String dbURL = "jdbc:mysql://smartfarmtest.cdletczkpejm.ap-northeast-2.rds.amazonaws.com:3306/smartfarm";
             String dbID = "admin";
             String dbPassword = "smartadmin";
             Class.forName("com.mysql.cj.jdbc.Driver");

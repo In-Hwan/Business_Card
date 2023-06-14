@@ -12,7 +12,7 @@ public class NameDAO {
 
     public NameDAO() {
         try {
-            String dbURL = "jdbc:mysql://smartfarmtest.cdletczkpejm.ap-northeast-2.rds.amazonaws.com:3306/micom";
+            String dbURL = "jdbc:mysql://smartfarmtest.cdletczkpejm.ap-northeast-2.rds.amazonaws.com:3306/smartfarm";
             String dbID = "admin";
             String dbPassword = "smartadmin";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,7 +25,7 @@ public class NameDAO {
 
     // 로그인 메서드
     public int login(String userID, String userPassword) {
-        String SQL = "SELECT userPassword FROM user WHERE userID = ?";
+        String SQL = "SELECT userPassword FROM name WHERE userID = ?";
         try {
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, userID);
@@ -45,7 +45,7 @@ public class NameDAO {
     }
 
     public int join(Name name) {
-        String SQL = "INSERT INTO user VALUES (?, ?, ?, ?)";
+        String SQL = "INSERT INTO name VALUES (?, ?, ?, ?)";
         try {
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, name.getUserID());
