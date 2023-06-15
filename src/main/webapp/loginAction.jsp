@@ -41,8 +41,8 @@
     }
 
     // 회원가입 페이지에서 입력한 정보를 세션에 저장
-    NameDAO userDAO = new NameDAO();
-    int result = userDAO.login(name.getUserID(),name.getUserPassword());
+    NameDAO nameDAO = new NameDAO();
+    int result = nameDAO.login(name.getUserID(),name.getUserPassword());
 
     if (result == 1) {
         session.setAttribute("userID", name.getUserID()); // 로그인 유저 확인

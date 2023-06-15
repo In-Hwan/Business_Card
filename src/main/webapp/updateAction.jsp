@@ -2,6 +2,8 @@
 <%@ page import="business.BusinessDAO" %>
 <%@ page import="business.Business" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="name.NameDAO" %>
+<%@ page import="name.Name" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <html>
 <head>

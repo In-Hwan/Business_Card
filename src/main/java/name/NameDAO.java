@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class NameDAO {
     private Connection conn;
@@ -59,6 +60,46 @@ public class NameDAO {
 
         }
         return -1; // 데이터베이스 오류
+    }
+
+    public Name getName() {
+        String SQL = "SELECT * FROM name";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                Name name = new Name();
+                name.setUserID(rs.getString(1));
+                name.setUserPassword(rs.getString(2));
+                name.setUserName(rs.getString(3));
+                name.setUserEmail(rs.getString(4));
+                return name;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Name> getList() {
+        String SQL = "SELECT * FROM name";
+        ArrayList<Name> list = new ArrayList<>();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Name name = new Name();
+                name.setUserID(rs.getString("userID"));
+                name.setUserPassword(rs.getString("userPassword"));
+                name.setUserName(rs.getString("userName"));
+                name.setUserEmail(rs.getString("userEmail"));
+                list.add(name);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

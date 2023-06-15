@@ -12,6 +12,7 @@ public class Business {
     private int bcAvailable;
 
 
+
     public int getBcID() {
         return bcID;
     }
@@ -75,6 +76,7 @@ public class Business {
     public void setBcAvailable(int bcAvailable) {
         this.bcAvailable = bcAvailable;
     }
+
 
 
 

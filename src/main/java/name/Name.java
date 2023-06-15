@@ -2,6 +2,7 @@ package name;
 
 public class Name {
 
+
     public String getUserID() {
         return userID;
     }
@@ -33,6 +34,7 @@ public class Name {
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
+
 
     private String userID;
     private String userPassword;

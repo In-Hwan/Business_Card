@@ -44,7 +44,7 @@ public class BusinessDAO {
             }
             return 1;
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return -1;  // 데이터 베이스 오류
@@ -61,10 +61,10 @@ public class BusinessDAO {
             pstmt.setString(5, fax);
             pstmt.setString(6, address);
             pstmt.setString(7, email);
-            pstmt.setInt(8,1);
+            pstmt.setInt(8, 1);
             return pstmt.executeUpdate();
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return -1;  // 데이터 베이스 오류
@@ -91,7 +91,7 @@ public class BusinessDAO {
 
             }
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
@@ -107,7 +107,7 @@ public class BusinessDAO {
                 return true;
             }
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -132,7 +132,7 @@ public class BusinessDAO {
                 return business;
             }
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -151,7 +151,7 @@ public class BusinessDAO {
             pstmt.setInt(7, bcID);
             return pstmt.executeUpdate();
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return -1;  // 데이터 베이스 오류
@@ -163,10 +163,9 @@ public class BusinessDAO {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, bcID);
             return pstmt.executeUpdate();
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return -1;  // 데이터 베이스 오류
     }
-
 }
